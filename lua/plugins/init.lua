@@ -28,6 +28,8 @@ return {
     config = require("configs.gitsigns")
   },
 
+  { 'tpope/vim-fugitive', lazy = false },
+
   {
     'rmagatti/auto-session',
     lazy = false,
