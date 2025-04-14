@@ -26,5 +26,15 @@ return {
   {
     "lewis6991/gitsigns.nvim",
     config = require("configs.gitsigns")
+  },
+
+  {
+    'rmagatti/auto-session',
+    lazy = false,
+
+    opts = {
+      suppressed_dirs = { '~/', '~/Projects', '~/Downloads', '/' },
+      -- log_level = 'debug',
+    }
   }
 }
