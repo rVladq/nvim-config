@@ -25,10 +25,15 @@ return {
 
   {
     "lewis6991/gitsigns.nvim",
+    lazy = false,
     config = require("configs.gitsigns")
   },
 
-  { 'tpope/vim-fugitive', lazy = false },
+  {
+    'tpope/vim-fugitive',
+    lazy = false,
+    -- config = require("configs.fugitive")
+  },
 
   {
     'rmagatti/auto-session',
@@ -36,4 +41,5 @@ return {
 
     opts = require("configs.auto-session")
   },
+
 }

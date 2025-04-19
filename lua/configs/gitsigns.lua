@@ -9,8 +9,11 @@ local config = function()
           { l, r, desc = desc or "", mode = mode } -- Use a description if available, or an empty string
         })
       end
-
       -- Actions
+
+      --jump
+      map('n', ']g', gitsigns.next_hunk, "next_hunk")
+      map('n', '[g', gitsigns.prev_hunk, "prev_hunk")
 
       --stage
       map('n', '<leader>gs', gitsigns.stage_hunk, "stage_hunk")

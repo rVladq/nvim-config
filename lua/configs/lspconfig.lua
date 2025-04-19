@@ -5,11 +5,13 @@ local lspconfig = require "lspconfig"
 local servers = { "html", "cssls", "csharp_ls", "arduino_language_server" }
 local nvlsp = require "nvchad.configs.lspconfig"
 
-vim.api.nvim_create_autocmd({ "TextChanged", "InsertLeave" }, {
-  callback = function()
-    vim.diagnostic.show()
-  end,
-})
+-- vim.api.nvim_create_autocmd({ "TextChanged", "InsertLeave" }, {
+--   callback = function()
+--     vim.diagnostic.show()
+--   end,
+-- })
+
+vim.api.nvim_set_hl(0, 'DiagnosticUnnecessary', { fg = '#a29bfe', italic = true })
 
 vim.diagnostic.config({
   virtual_text = true,
