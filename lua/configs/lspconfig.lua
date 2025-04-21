@@ -18,6 +18,8 @@ vim.diagnostic.config({
   update_in_insert = true,
 })
 
+vim.keymap.set('n', '<leader>R', vim.lsp.buf.rename)
+
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = nvlsp.on_attach,
