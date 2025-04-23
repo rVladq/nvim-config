@@ -43,3 +43,5 @@ end, opts)
 map("n", "<leader><S-Tab>", function()
   require("harpoon.ui").nav_prev()
 end, opts)
+
+vim.keymap.set('n', '<leader>r', [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], { noremap = true })
