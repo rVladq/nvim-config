@@ -16,7 +16,7 @@ map("n", "<leader>a", function()
   require("harpoon.mark").add_file()
 end, opts)
 
-map("n", "<C-e>", function()
+map("n", "<leader>j", function()
   require("harpoon.ui").toggle_quick_menu()
 end, opts)
 
