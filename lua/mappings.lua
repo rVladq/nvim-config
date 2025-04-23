@@ -35,10 +35,11 @@ end, opts)
 map("n", "<C-l>", function()
   require("harpoon.ui").nav_file(4)
 end, opts)
-map("n", "<leader>hn", function()
+
+map("n", "<leader><Tab>", function()
   require("harpoon.ui").nav_next()
 end, opts)
 
-map("n", "<leader>hp", function()
+map("n", "<leader><S-Tab>", function()
   require("harpoon.ui").nav_prev()
 end, opts)
