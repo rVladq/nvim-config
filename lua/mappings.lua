@@ -1,6 +1,7 @@
 require "nvchad.mappings"
 
 local map = vim.keymap.set
+local opts = { noremap = true, silent = true }
 
 map('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true })
 map('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true })
@@ -10,3 +11,34 @@ map('n', '<leader>ca', vim.lsp.buf.code_action)
 -- map('n', '<C-K>', vim.lsp.buf.signature_help)
 
 map('i', '<C-c>', '<ESC>')
+
+map("n", "<leader>a", function()
+  require("harpoon.mark").add_file()
+end, opts)
+
+map("n", "<C-e>", function()
+  require("harpoon.ui").toggle_quick_menu()
+end, opts)
+
+map("n", "<C-h>", function()
+  require("harpoon.ui").nav_file(1)
+end, opts)
+
+map("n", "<C-j>", function()
+  require("harpoon.ui").nav_file(2)
+end, opts)
+
+map("n", "<C-k>", function()
+  require("harpoon.ui").nav_file(3)
+end, opts)
+
+map("n", "<C-l>", function()
+  require("harpoon.ui").nav_file(4)
+end, opts)
+map("n", "<leader>hn", function()
+  require("harpoon.ui").nav_next()
+end, opts)
+
+map("n", "<leader>hp", function()
+  require("harpoon.ui").nav_prev()
+end, opts)
