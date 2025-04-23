@@ -20,19 +20,19 @@ map("n", "<C-e>", function()
   require("harpoon.ui").toggle_quick_menu()
 end, opts)
 
-map("n", "<C-h>", function()
+map("n", "<C-q>", function()
   require("harpoon.ui").nav_file(1)
 end, opts)
 
-map("n", "<C-j>", function()
+map("n", "<C-w>", function()
   require("harpoon.ui").nav_file(2)
 end, opts)
 
-map("n", "<C-k>", function()
+map("n", "<C-e>", function()
   require("harpoon.ui").nav_file(3)
 end, opts)
 
-map("n", "<C-l>", function()
+map("n", "<C-r>", function()
   require("harpoon.ui").nav_file(4)
 end, opts)
 
