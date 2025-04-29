@@ -10,3 +10,22 @@ vim.api.nvim_set_hl(0, "Visual", {
   fg = "#000000",
   bold = true,
 })
+vim.fn.sign_define('DapBreakpoint', {
+  text = '●',
+  texthl = 'DapBreakpoint',
+  linehl = '',
+  numhl = 'DapBreakpoint'
+})
+
+vim.fn.sign_define('DapStopped', {
+  text = '▶',
+  texthl = 'DapStopped',
+  linehl = 'DapStoppedLine',
+  numhl = 'DapStopped'
+})
+
+vim.cmd [[
+  highlight DapBreakpoint guifg=#FF5555 gui=bold
+  highlight DapStopped guifg=#00FF00 gui=bold
+  highlight DapStoppedLine guibg=#222244
+]]
