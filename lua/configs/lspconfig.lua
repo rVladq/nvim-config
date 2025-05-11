@@ -2,7 +2,7 @@ require("nvchad.configs.lspconfig").defaults()
 
 local lspconfig = require "lspconfig"
 
-local servers = { "html", "cssls", "csharp_ls", "arduino_language_server" }
+local servers = { "html", "cssls", "csharp_ls", "arduino_language_server", "ts_ls" }
 local nvlsp = require "nvchad.configs.lspconfig"
 
 -- vim.api.nvim_create_autocmd({ "TextChanged", "InsertLeave" }, {

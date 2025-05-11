@@ -29,3 +29,5 @@ vim.cmd [[
   highlight DapStopped guifg=#00FF00 gui=bold
   highlight DapStoppedLine guibg=#222244
 ]]
+
+vim.opt.showtabline = 0
