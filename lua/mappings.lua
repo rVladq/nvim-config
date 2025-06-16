@@ -1,53 +1,51 @@
-require "nvchad.mappings"
+require("nvchad.mappings")
 
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
-map('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true })
-map('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true })
+map("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
+map("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
 
-map('n', '<C-k>', vim.diagnostic.open_float)
-map('n', '<leader>ca', vim.lsp.buf.code_action)
+map("n", "<C-k>", vim.diagnostic.open_float)
+map("n", "<leader>ca", vim.lsp.buf.code_action)
 -- map('n', '<C-K>', vim.lsp.buf.signature_help)
 
-map('i', '<C-c>', '<ESC>')
+map("i", "<C-c>", "<ESC>")
 
 map("n", "<leader>a", function()
-  require("harpoon.mark").add_file()
+	require("harpoon.mark").add_file()
 end, opts)
 
 map("n", "<leader>j", function()
-  require("harpoon.ui").toggle_quick_menu()
+	require("harpoon.ui").toggle_quick_menu()
 end, opts)
 
 map("n", "<leader>1", function()
-  require("harpoon.ui").nav_file(1)
+	require("harpoon.ui").nav_file(1)
 end, opts)
 
 map("n", "<leader>2", function()
-  require("harpoon.ui").nav_file(2)
+	require("harpoon.ui").nav_file(2)
 end, opts)
 
 map("n", "<leader>3", function()
-  require("harpoon.ui").nav_file(3)
+	require("harpoon.ui").nav_file(3)
 end, opts)
 
 map("n", "<leader>4", function()
-  require("harpoon.ui").nav_file(4)
+	require("harpoon.ui").nav_file(4)
 end, opts)
 
-vim.keymap.set('n', '<leader>r', [[:%s/\C\<<C-r><C-w>\>//g<Left><Left>]], { noremap = true })
+vim.keymap.set("n", "<leader>r", [[:%s/\C\<<C-r><C-w>\>//g<Left><Left>]], { noremap = true })
 
-
-
-local dap = require "dap"
+local dap = require("dap")
 
 vim.keymap.set("n", "<space>b", dap.toggle_breakpoint)
 vim.keymap.set("n", "<space>gb", dap.run_to_cursor)
 
 -- Eval var under cursor
 vim.keymap.set("n", "<space>?", function()
-  require("dapui").eval(nil, { enter = true })
+	require("dapui").eval(nil, { enter = true })
 end)
 
 vim.keymap.set("n", "<F1>", dap.continue)
