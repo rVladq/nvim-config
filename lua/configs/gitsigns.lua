@@ -9,7 +9,6 @@ local config = function()
           { l, r, desc = desc or "", mode = mode } -- Use a description if available, or an empty string
         })
       end
-      -- Actions
 
       --jump
       map('n', ']g', gitsigns.next_hunk, "next_hunk")
@@ -26,6 +25,15 @@ local config = function()
       map('n', '<leader>gd', function()
         gitsigns.diffthis('~')
       end, "diff_head")
+
+      map('n', '<leader>gc', function()
+        vim.ui.input({ prompt = 'Enter commit hash or ref: ' }, function(input)
+          if input then
+            require('gitsigns').diffthis(input)
+          end
+        end)
+      end, "diff_custom_commit")
+
       map('n', '<leader>gD', gitsigns.diffthis, "diff_index")
 
       map('n', '<leader>gp', gitsigns.preview_hunk, "diff_hunk")
@@ -36,7 +44,7 @@ local config = function()
         gitsigns.blame_line({ full = true })
       end, "blame")
 
-      -- Toggles
+      --toggles
       map('n', '<leader>tb', gitsigns.toggle_current_line_blame, "toggle_current_line_blame")
       map('n', '<leader>td', gitsigns.toggle_deleted, "toggle_deleted")
       map('n', '<leader>tw', gitsigns.toggle_word_diff, "toggle_word_diff")
