@@ -164,4 +164,37 @@ return {
 			end
 		end,
 	},
+
+	{
+		"olimorris/codecompanion.nvim",
+		lazy = false,
+		opts = {
+			strategies = {
+				chat = {
+					adapter = "openai",
+				},
+				inline = {
+					adapter = "openai",
+				},
+			},
+			adapters = {
+				openai = function()
+					return require("codecompanion.adapters").extend("openai", {
+						schema = {
+							model = {
+								default = "gpt-4.1",
+							},
+						},
+						env = {
+							api_key = OPENAI_API_KEY,
+						},
+					})
+				end,
+			},
+		},
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+		},
+	},
 }
