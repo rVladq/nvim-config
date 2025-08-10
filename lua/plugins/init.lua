@@ -38,6 +38,34 @@ return {
 	},
 
 	{
+		"nvim-tree/nvim-tree.lua",
+		opts = {
+			filters = {
+				dotfiles = false, -- Show dotfiles
+				git_ignored = false, -- Show gitignored files
+				custom = {}, -- No custom filters, show all
+			},
+			git = {
+				enable = true, -- Enable git integration
+				ignore = false, -- Do not ignore .gitignored files
+			},
+			view = {
+				width = 30,
+				side = "left",
+				adaptive_size = false,
+			},
+			renderer = {
+				highlight_git = true,
+				highlight_opened_files = "all",
+			},
+			update_focused_file = {
+				enable = true,
+				update_cwd = true,
+			},
+		},
+	},
+
+	{
 		"tpope/vim-fugitive",
 		lazy = false,
 		-- config = require("configs.fugitive")
