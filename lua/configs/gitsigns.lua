@@ -23,11 +23,7 @@ local config = function()
 
       --diff
       map('n', '<leader>gd', function()
-        gitsigns.diffthis('~')
-      end, "diff_head")
-
-      map('n', '<leader>gc', function()
-        vim.ui.input({ prompt = 'Enter commit hash or ref: ' }, function(input)
+        vim.ui.input({ prompt = 'Specify commit: ' }, function(input)
           if input then
             require('gitsigns').diffthis(input)
           end
