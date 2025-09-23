@@ -60,8 +60,9 @@ return {
 			},
 			update_focused_file = {
 				enable = true,
-				update_cwd = true,
+				update_cwd = false,
 			},
+			hijack_directories = { enable = false },
 		},
 	},
 
@@ -145,7 +146,12 @@ return {
 						name = "Launch - .NET Core",
 						request = "launch",
 						program = function()
-							return vim.fn.input("Path to dll: ", vim.fn.getcwd() .. "/bin/Debug/", "file")
+							return vim.fn.input("Path to dll: ", vim.fn.getcwd() .. "/bin/Debug/net8.0/", "file")
+						end,
+						env = function()
+              local launch_profile = require("get-launch-profile").select_launch_profile(vim.fn.getcwd())
+              if launch_profile == nil then return nil end
+              return launch_profile.environmentVariables or nil
 						end,
 					},
 				}
