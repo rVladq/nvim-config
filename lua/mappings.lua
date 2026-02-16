@@ -3,6 +3,13 @@ require("nvchad.mappings")
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
+-- exact mark jump + center
+vim.keymap.set("n", "<space>q", function()
+	local mark = vim.fn.getcharstr()
+	vim.cmd("normal! `" .. mark)
+	vim.cmd("normal! zt")
+end, { noremap = true, silent = true })
+
 map("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
 map("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
 
@@ -54,3 +61,5 @@ vim.keymap.set("n", "<F3>", dap.step_over)
 vim.keymap.set("n", "<F4>", dap.step_out)
 vim.keymap.set("n", "<F5>", dap.step_back)
 vim.keymap.set("n", "<F12>", dap.restart)
+
+vim.o.scrolloff = 5 -- Keeps 5 lines of context
