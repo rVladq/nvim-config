@@ -27,21 +27,19 @@ map("n", "<leader>j", function()
 	require("harpoon.ui").toggle_quick_menu()
 end, opts)
 
-map("n", "<leader>1", function()
-	require("harpoon.ui").nav_file(1)
+map("n", "<C-l>", function()
+	require("harpoon.ui").nav_next()
 end, opts)
 
-map("n", "<leader>2", function()
-	require("harpoon.ui").nav_file(2)
+map("n", "<C-h>", function()
+	require("harpoon.ui").nav_prev()
 end, opts)
 
-map("n", "<leader>3", function()
-	require("harpoon.ui").nav_file(3)
-end, opts)
-
-map("n", "<leader>4", function()
-	require("harpoon.ui").nav_file(4)
-end, opts)
+for i = 1, 9 do
+	map("n", "<leader>" .. i, function()
+		require("harpoon.ui").nav_file(i)
+	end, opts)
+end
 
 vim.keymap.set("n", "<leader>r", [[:%s/\C\<<C-r><C-w>\>//g<Left><Left>]], { noremap = true })
 
